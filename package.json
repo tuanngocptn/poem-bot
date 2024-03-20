@@ -1,0 +1,27 @@
+{
+  "name": "poem-bot",
+  "version": "1.0.0",
+  "description": "the funny bot auto generate poem",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuanngocptn/poem-bot.git"
+  },
+  "keywords": [
+    "poem",
+    "bot"
+  ],
+  "author": "tuanngocptn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tuanngocptn/poem-bot/issues"
+  },
+  "homepage": "https://github.com/tuanngocptn/poem-bot#readme",
+  "dependencies": {
+    "puppeteer": "^22.5.0"
+  }
+}

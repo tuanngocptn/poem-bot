@@ -1,0 +1,41 @@
+name: Poem run
+
+on:
+  schedule:
+    - cron: 0-59/15 1-12 * * 1-5
+
+  # push:
+
+env:
+  TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+  TELEGRAM_GROUP_ID: ${{ vars.TELEGRAM_GROUP_ID }}
+
+jobs:
+  run:
+    name: Poem run
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js.
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.12.0
+
+      - name: Install dependencies.
+        run: npm install --force
+
+      - name: Generate poem
+        id: poem
+        run: |
+          INPUT=$(npm start)
+          POEM=$(echo $INPUT | sed 's/> poem-bot@1.0.0 start > node index.js / /')
+          echo $POEM
+          echo "value=$POEM" >> "$GITHUB_OUTPUT"
+
+      - name: Send poem
+        uses: PacificPromise/macos-telegram-action@main
+        with:
+          type: group
+          message: "🫦${{ steps.poem.outputs.value }}"
