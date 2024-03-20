@@ -24,7 +24,7 @@ async function pipeline() {
       .split("<br>")
       .map((sentence) => sentence.replaceAll("&nbsp;", "").trim())
       .filter((sentence) => !!sentence)
-      .join(", ") + "."
+      .join(",") + "."
   );
   await page.close();
   await browser.close();

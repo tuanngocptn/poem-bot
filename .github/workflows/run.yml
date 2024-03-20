@@ -30,7 +30,7 @@ jobs:
         id: poem
         run: |
           INPUT=$(npm start)
-          POEM=$(echo $INPUT | sed 's/> poem-bot@1.0.0 start > node index.js / /')
+          POEM=$(echo $INPUT | sed 's/> poem-bot@1.0.0 start > node index.js / /' | sed -r 's/[,]+/,\\n/g')
           echo $POEM
           echo "value=$POEM" >> "$GITHUB_OUTPUT"
 
@@ -38,4 +38,4 @@ jobs:
         uses: PacificPromise/macos-telegram-action@main
         with:
           type: group
-          message: "🫦${{ steps.poem.outputs.value }}"
+          message: "${{ steps.poem.outputs.value }}"
