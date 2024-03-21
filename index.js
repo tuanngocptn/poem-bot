@@ -1,7 +1,8 @@
 const puppeteer = require("puppeteer");
 
 const HO_XUAN_HUONG_LINK =
-  "http://thomay.vn/thomay/index.php?q=tungcau&t=L%E1%BB%A5c%20b%C3%A1t&s=H%E1%BB%93%20Xu%C3%A2n%20H%C6%B0%C6%A1ng";
+  // "http://thomay.vn/thomay/index.php?q=tungcau&t=L%E1%BB%A5c%20b%C3%A1t&s=H%E1%BB%93%20Xu%C3%A2n%20H%C6%B0%C6%A1ng";
+  "http://thomay.vn/thomay/index.php?q=tungcau&t=Thất ngôn tứ tuyệt (3 vần)&s=Hồ Xuân Hương";
 
 const PAGE = {
   ADD_PARAGRAPH_BUTTON: 'input[name="fullbaitho"]',
