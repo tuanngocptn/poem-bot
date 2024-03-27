@@ -1,13 +1,14 @@
-name: Chương Fi
+name: Chuong Fi
 
 on:
-  schedule:
-    - cron: 0-59/15 2-10 * * 1-5
+  # schedule:
+  #   - cron: 0-59/15 2-10 * * 1-5
 
-  # push:
+  push:
 
 env:
   TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+  BARD_AI_TOKEN: ${{ secrets.BARD_AI_TOKEN }}
   TELEGRAM_GROUP_ID: ${{ vars.TELEGRAM_GROUP_ID }}
 
 jobs:
@@ -18,23 +19,24 @@ jobs:
       - name: Clone
         uses: actions/checkout@v4
 
-      # - name: Set up Node.js.
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: 18.12.0
+      - name: Set up Node.js.
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.12.0
 
-      # - name: Install dependencies.
-      #   run: npm install --force
+      - name: Install dependencies.
+        run: npm install --force
 
-      # - name: Generate poem
-      #   id: poem
-      #   run: |
-      #     INPUT=$(npm start)
-      #     POEM=$(echo $INPUT | sed 's/> poem-bot@1.0.0 start > node index.js / /' | sed -r 's/[,]+/,\\n/g')
-      #     echo $POEM
-      #     echo "value=$POEM" >> "$GITHUB_OUTPUT"
+      - name: Generate poem
+        id: poem
+        run: |
+          INPUT=$(npm run cf:start)
+          POEM=$(echo $INPUT | sed 's/> poem-bot@1.0.0 cf:start > node cfIndex.js / /' | sed -r 's/[,]+/,\\n/g')
+          echo $POEM
+          echo "value=$POEM" >> "$GITHUB_OUTPUT"
 
-      # - name: Send poem
+      - name: Send poem
+        run: echo "${{steps.poem.outputs.value}}""
       #   uses: PacificPromise/macos-telegram-action@main
       #   with:
       #     type: group

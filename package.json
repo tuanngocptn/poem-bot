@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "cf:start": "node cfIndex.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,6 +23,8 @@
   },
   "homepage": "https://github.com/tuanngocptn/poem-bot#readme",
   "dependencies": {
+    "@google/generative-ai": "^0.3.1",
+    "dotenv": "^16.4.5",
     "puppeteer": "^22.5.0"
   }
 }
