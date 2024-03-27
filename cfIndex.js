@@ -32,7 +32,7 @@ async function run() {
       .filter((sentence) => !!sentence)
       .join(",") + ".";
 
-  console.log(`Gửi ${member.telegram_id}:` + text);
+  console.log(`Gửi ${member.telegram_id}:.` + text);
 }
 
 run();
