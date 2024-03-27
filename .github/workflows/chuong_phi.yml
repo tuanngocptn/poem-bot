@@ -1,8 +1,8 @@
 name: Chuong Fi
 
 on:
-  # schedule:
-  #   - cron: 0-59/15 2-10 * * 1-5
+  schedule:
+    - cron: 0-59/15 2-10 * * 1-5
 
   push:
 
