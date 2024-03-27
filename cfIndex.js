@@ -22,8 +22,17 @@ async function run() {
   const prompt = `Làm thơ rủ nhậu bạn ${member.name} trong 4 câu thơ lục bát, Phải có tên bạn ${member.name} trong bài thơ.`;
   const result = await model.generateContent(prompt);
   const response = await result.response;
-  const text = response.text();
-  console.log(" " + text + `${member.telegram_id}`);
+  const text =
+    response
+      .text()
+      .split("\n")
+      .map((sentence) =>
+        sentence.replaceAll(",", "").replaceAll(".", "").trim()
+      )
+      .filter((sentence) => !!sentence)
+      .join(",") + ".";
+
+  console.log(`Gửi ${member.telegram_id}:` + text);
 }
 
 run();

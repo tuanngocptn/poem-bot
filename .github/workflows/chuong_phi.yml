@@ -32,7 +32,7 @@ jobs:
         id: poem
         run: |
           INPUT=$(npm run cf:start)
-          POEM=$(echo $INPUT | sed 's/> poem-bot@1.0.0 cf:start > node cfIndex.js / /' | sed -r 's/[,]+/,\\n/g' | sed -r 's/[.]+/.\\n/g')
+          POEM=$(echo $INPUT | sed 's/> poem-bot@1.0.0 cf:start > node cfIndex.js / /' | sed -r 's/[,]+/,\\n/g' | sed -r 's/[:]+/:\\n/g')
           echo $POEM
           echo "value=$POEM" >> "$GITHUB_OUTPUT"
 
