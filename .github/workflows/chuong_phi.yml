@@ -36,7 +36,7 @@ jobs:
           echo "value=$POEM" >> "$GITHUB_OUTPUT"
 
       - name: Send poem
-        run: echo "${{steps.poem.outputs.value}}""
+        run: echo "${{steps.poem.outputs.value}}"
       #   uses: PacificPromise/macos-telegram-action@main
       #   with:
       #     type: group
