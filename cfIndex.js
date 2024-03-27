@@ -23,7 +23,7 @@ async function run() {
   const result = await model.generateContent(prompt);
   const response = await result.response;
   const text = response.text();
-  console.log(" " + text + `\\n${member.telegram_id}`);
+  console.log(" " + text + `${member.telegram_id}`);
 }
 
 run();
