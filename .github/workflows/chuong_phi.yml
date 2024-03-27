@@ -7,9 +7,10 @@ on:
   push:
 
 env:
-  TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+  TELEGRAM_BOT_TOKEN: ${{ secrets.CF_TELEGRAM_TOKEN }}
   BARD_AI_TOKEN: ${{ secrets.BARD_AI_TOKEN }}
-  TELEGRAM_GROUP_ID: ${{ vars.TELEGRAM_GROUP_ID }}
+  TELEGRAM_GROUP_ID: ${{ vars.CF_TELEGRAM_GROUP_ID }}
+  CF_TELEGRAM_TOPIC_ID: ${{ vars.CF_TELEGRAM_TOPIC_ID }}
 
 jobs:
   run:
@@ -36,8 +37,7 @@ jobs:
           echo "value=$POEM" >> "$GITHUB_OUTPUT"
 
       - name: Send poem
-        run: echo "${{steps.poem.outputs.value}}"
-      #   uses: PacificPromise/macos-telegram-action@main
-      #   with:
-      #     type: group
-      #     message: "${{ steps.poem.outputs.value }}"
+        uses: PacificPromise/macos-telegram-action@main
+        with:
+          type: topic
+          message: "${{ steps.poem.outputs.value }}"
