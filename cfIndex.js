@@ -19,7 +19,7 @@ async function run() {
   const member = MEMBERS[Math.floor(Math.random() * MEMBERS.length)];
   const genAI = new GoogleGenerativeAI(process.env.BARD_AI_TOKEN);
   const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-  const prompt = `Làm thơ rủ nhậu bạn ${member.name} bằng "thơ lục bát" bốn câu, phải có tên bạn ${member.name}.`;
+  const prompt = `Làm thơ rủ nhậu bằng "thơ lục bát" bốn câu`;
   const result = await model.generateContent(prompt);
   const response = await result.response;
   const text =
