@@ -9,7 +9,7 @@ const MEMBERS = [
   { name: "Tiến", telegram_id: "@TitusPham888" },
   { name: "Gia Bảo", telegram_id: "@baronha" },
   { name: "Phong Bảo", telegram_id: "@npbao" },
-  { name: "Tuấn", telegram_id: "@bevisng" },
+  { name: "Tuấn", telegram_id: "@bevisngo" },
   { name: "Trang", telegram_id: "@Trang91296" },
   { name: "Khánh Ly", telegram_id: "@phanlekhanhly" },
   { name: "Trọng", telegram_id: "@vantrong2k" },
